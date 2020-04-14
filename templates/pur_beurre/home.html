@@ -3,8 +3,11 @@
 {% block content %}
 
 <h1>Page Home</h1>
-<p>{{ list_category }}</p>
+{% for o in list_category %}
+{{ o }}
+{% endfor %}
 <a href="{% url 'users:login' %}"><input type="button" value="Connexion"></a>
 <a href="{% url 'users:create_account' %}"><input type="button" value="Créer un compte"></a>
 
 {% endblock content %}
+
