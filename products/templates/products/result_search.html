@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h1>Page Home</h1>
-{{ result_search }}
-<br>
-<br>
+<h1>Résultat de recherche:</h1>
 {% include "pur_beurre/search_box.html" %}
-<br>
+
+<ul>
+    {% for product in result_search %}
+        <li>{{ product }}</li>
+    {% endfor %}
+</ul>
+
 {% include "pur_beurre/menu.html" %}
 {% endblock content %}

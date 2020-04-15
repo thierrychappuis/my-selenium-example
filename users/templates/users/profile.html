@@ -4,5 +4,7 @@
 
 <h1>Bienvenue sur pur beurre !</h1>
 <p>Infos à venir !</p>
+{% include "pur_beurre/search_box.html" %}
+<br>
 <a href="{% url 'users:logout' %}"><input type="button" value="Déconnexion"></a>
 {% endblock content %}
