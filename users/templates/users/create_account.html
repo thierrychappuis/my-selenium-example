@@ -3,19 +3,10 @@
 {% block content %}
 
 <p>Création de compte bientôt dispo !!</p>
-    <form>
-        <label for="pseudo">Entrez un pseudo : </label>
-        <input type="text" name="pseudo" id="pseudo"><br><br>
-
-        <label for="mail">Entrez une adresse Mail : </label>
-        <input type="text" name="mail" id="mail"><br><br>
-
-        <label for="mot_de_passe">Entrez un Mot de passe : </label>
-        <input type="text" name="mot_de_passe" id="mot_de_passe"><br><br>
-
-        <label for="check_mot_de_passe">Confirmer Mot de passe : </label>
-        <input type="text" name="check_mot_de_passe" id="check_mot_de_passe"><br><br>
-
-        <input type="submit" value="Créer le compte">
-    </form>
+<h2>Créer un compte ici.</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Créer un compte</button>
+</form>
 {% endblock content %}
