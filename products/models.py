@@ -9,11 +9,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Store(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -29,7 +31,13 @@ class Product(models.Model):
     image_url = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.product_name_fr
+        return f"{self.product_name_fr} {self.nutrition_grade_fr.upper()}"
+
+    def better_products(self):
+        return Product.objects.filter(
+            id_category=self.id_category,
+            nutrition_grade_fr__lt=self.nutrition_grade_fr
+        )[:7]
 
 
 class Favorite(models.Model):
