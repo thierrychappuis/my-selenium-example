@@ -3,7 +3,8 @@
 {% block content %}
 <h1>Résultat de recherche:</h1>
 {% include "pur_beurre/search_box.html" %}
-
+<br>
+<h2>Vous pouvez remplacer cet aliment par :</h2>
 <ul>
     {% for product in substituts %}
         <li>{{ product }} </li>

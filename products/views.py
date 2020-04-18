@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from products.models import Product
 
-# Create your views here.
+
 def result_search(request):
     result = None
     try:
@@ -13,3 +13,6 @@ def result_search(request):
         print('Pas de requête')
 
     return render(request, 'products/result_search.html', {'substituts': substituts})
+
+def product_sheet(request):
+    pass
