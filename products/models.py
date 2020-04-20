@@ -37,7 +37,7 @@ class Product(models.Model):
         return Product.objects.filter(
             id_category=self.id_category,
             nutrition_grade_fr__lt=self.nutrition_grade_fr
-        )[:7]
+        )[:6]
 
 
 class Favorite(models.Model):

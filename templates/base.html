@@ -6,6 +6,8 @@
     <title>Pur Beurre</title>
 </head>
 <body>
+    <a href="{% url 'users:login' %}"><input type="button" value="Connexion"></a>
+    <a href="{% url 'users:create_account' %}"><input type="button" value="Créer un compte"></a>
     {% block content %}{% endblock content %}
 </body>
 </html>
