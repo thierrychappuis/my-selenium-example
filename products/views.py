@@ -14,5 +14,9 @@ def result_search(request):
 
     return render(request, 'products/result_search.html', {'substituts': substituts})
 
-def product_sheet(request):
-    pass
+def product_sheet(request, code):
+    product = Product.objects.get(id=code)
+    return render(request, 'products/product_sheet.html', {'product': product})
+
+def favorites (request):
+    return render(request, 'products/product_sheet.html')

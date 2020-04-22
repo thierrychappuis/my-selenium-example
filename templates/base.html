@@ -6,8 +6,15 @@
     <title>Pur Beurre</title>
 </head>
 <body>
-    <a href="{% url 'users:login' %}"><input type="button" value="Connexion"></a>
-    <a href="{% url 'users:create_account' %}"><input type="button" value="Créer un compte"></a>
-    {% block content %}{% endblock content %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'users:logout' %}"><button>Déconnexion</button></a>
+    {% else %}
+        <a href="{% url 'users:login' %}"><button>Connexion</button></a>
+        <a href="{% url 'users:create_account' %}"><button>Créer un compte</button></a>
+    {% endif %}
+        {% block content %}{% endblock content %}
 </body>
+<footer>
+    
+</footer>
 </html>

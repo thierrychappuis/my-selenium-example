@@ -8,9 +8,12 @@
 <h2>Vous pouvez remplacer cet aliment par :</h2>
 <ul>
     {% for product in substituts %}
-        <li>{{ product }} </li>
+        <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a> Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
         <img src="{{ product.image_url }}" alt="Image du produit">
+        {% if user.is_authenticated %}
+            <a href=" {% url 'products:favorite' %}"><button>Sauvegarder</button></a>
+        {% else %}
+    {% endif %}
     {% endfor %}
 </ul>
-
 {% endblock content %}

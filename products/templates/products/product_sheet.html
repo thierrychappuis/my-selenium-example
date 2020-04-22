@@ -2,9 +2,14 @@
 
 {% block content %}
 <h1>Fiche Produit .</h1>
+<ul>
+        <li>{{product}}<ul>
+            <li>{{product.product_name_fr}}</li>
+            <li>Nutriscore : {{ product.nutrition_grade_fr.upper }}</li>
+            <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
+            <img src="{{ product.image_url }}" alt="Image du produit"> 
+        </ul></li>
+
+</ul>
 {% include "pur_beurre/search_box.html" %}
-
-
-
-
 {% endblock content %}
