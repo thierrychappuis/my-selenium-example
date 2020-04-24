@@ -11,7 +11,9 @@
         <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a> Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
         <img src="{{ product.image_url }}" alt="Image du produit">
         {% if user.is_authenticated %}
-            <a href=" {% url 'products:favorite' %}"><button>Sauvegarder</button></a>
+        <form action="{% url 'products:favorites' %}" method="POST">{% csrf_token %}<button type="submit">Sauvegarder</button>
+        <input type="hidden" id="id_product" name="id_product" value="{{ product.id }}">
+        </form>
         {% else %}
     {% endif %}
     {% endfor %}

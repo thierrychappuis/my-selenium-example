@@ -21,3 +21,6 @@ def create_account(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/create_account.html', {'form': form})
+
+def favorites_user(request):
+    return render(request, 'users/favorites.html')

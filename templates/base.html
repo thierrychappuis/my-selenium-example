@@ -8,6 +8,8 @@
 <body>
     {% if user.is_authenticated %}
         <a href="{% url 'users:logout' %}"><button>Déconnexion</button></a>
+        <a href="{% url 'users:profile' %}"><button>Mon compte</button></a>
+        <a href="{% url 'users:favorites' %}"><button>Mes aliments</button></a>
     {% else %}
         <a href="{% url 'users:login' %}"><button>Connexion</button></a>
         <a href="{% url 'users:create_account' %}"><button>Créer un compte</button></a>

@@ -46,12 +46,6 @@ class Favorite(models.Model):
         on_delete=models.CASCADE,
         related_name="favorites",
     )
-    id_compared = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        verbose_name="Produit comparé",
-        related_name="compared"
-    )
     id_result = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,

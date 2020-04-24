@@ -37,3 +37,4 @@ class DbAdd:
                         name=store)
                     current_store.save()
                     current_product.store.add(current_store)
+    
