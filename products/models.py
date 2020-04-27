@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
+    """Bdd models of categories product."""
     name = models.CharField(max_length=100, default=None)
 
     def __str__(self):
@@ -11,6 +12,7 @@ class Category(models.Model):
 
 
 class Store(models.Model):
+    """Bdd models of stores product."""
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -18,6 +20,8 @@ class Store(models.Model):
 
 
 class Product(models.Model):
+    """Bdd models of products."""
+
     id = models.BigIntegerField(primary_key=True)
     id_category = models.ForeignKey(
         Category,
@@ -34,6 +38,8 @@ class Product(models.Model):
         return f"{self.product_name_fr} {self.nutrition_grade_fr.upper()}"
 
     def better_products(self):
+        """Recovery of better products."""
+
         return Product.objects.filter(
             id_category=self.id_category,
             nutrition_grade_fr__lt=self.nutrition_grade_fr
@@ -41,6 +47,8 @@ class Product(models.Model):
 
 
 class Favorite(models.Model):
+    """Bdd models of favorites."""
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
