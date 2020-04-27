@@ -3,8 +3,11 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from products.models import Favorite
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/users/login/')
 def profile(request):
     return render(request, 'users/profile.html')
 
@@ -22,5 +25,10 @@ def create_account(request):
         form = CustomUserCreationForm()
     return render(request, 'users/create_account.html', {'form': form})
 
+@login_required(login_url='/users/login/')
 def favorites_user(request):
-    return render(request, 'users/favorites.html')
+    user = request.user
+    product_favorite = Favorite.objects.filter(user=user)
+    products = [ favorite.id_result for favorite in product_favorite ]
+
+    return render(request, 'users/favorites.html', {'products': products})

@@ -4,6 +4,14 @@
 <br>
 <br>
 {% include "pur_beurre/search_box.html" %}
-
-
+<ul>
+    {% for product in products %}
+        <li>{{product}}<ul>
+        <li>{{product.product_name_fr}}</li>
+        <li>Nutriscore : {{ product.nutrition_grade_fr.upper }}</li>
+        <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
+        <img src="{{ product.image_url }}" alt="Image du produit"> 
+    </ul></li>
+    {% endfor %}
+</ul>
 {% endblock content %}

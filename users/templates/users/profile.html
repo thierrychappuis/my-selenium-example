@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<br>
+<br>
+{% include "pur_beurre/search_box.html" %}
 
 <h1>Bienvenue sur la page mon compte</h1>
-<p>Infos à venir !</p>
-{% include "pur_beurre/search_box.html" %}
+<ul>
+    <li>{{ user.first_name }}</li>
+    <li>{{ user.email }}</li>
+</ul>
+
 {% endblock content %}

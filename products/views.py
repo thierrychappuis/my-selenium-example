@@ -13,7 +13,7 @@ def result_search(request):
     except KeyError:
         print('Pas de requête')
 
-    return render(request, 'products/result_search.html', {'substituts': substituts})
+    return render(request, 'products/result_search.html', {'substituts': substituts, 'product': product})
 
 
 def product_sheet(request, code):

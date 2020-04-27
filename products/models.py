@@ -54,4 +54,4 @@ class Favorite(models.Model):
     )
 
     def __str__(self):
-        return self.id_compared
+        return f"{self.id_result}"

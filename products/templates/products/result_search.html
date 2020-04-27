@@ -5,13 +5,20 @@
 <h1>Résultat de recherche:</h1>
 {% include "pur_beurre/search_box.html" %}
 <br>
+<ul>
+<li>{{ product.product_name_fr }}</li>
+<li>Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
+<img src="{{ product.image_url }}" alt="Image du produit">
+</ul>
 <h2>Vous pouvez remplacer cet aliment par :</h2>
 <ul>
     {% for product in substituts %}
-        <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a> Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
+        <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li> <li>Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
         <img src="{{ product.image_url }}" alt="Image du produit">
         {% if user.is_authenticated %}
         <form action="{% url 'products:favorites' %}" method="POST">{% csrf_token %}<button type="submit">Sauvegarder</button>
+            <br>
+            <br>
         <input type="hidden" id="id_product" name="id_product" value="{{ product.id }}">
         </form>
         {% else %}
