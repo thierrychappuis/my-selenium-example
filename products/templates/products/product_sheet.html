@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+<br>
+<br>
+{% include "pur_beurre/search_box.html" %}
+
 <h1>Fiche Produit .</h1>
 <ul>
         <li>{{product}}<ul>
@@ -11,5 +15,5 @@
         </ul></li>
 
 </ul>
-{% include "pur_beurre/search_box.html" %}
+
 {% endblock content %}
