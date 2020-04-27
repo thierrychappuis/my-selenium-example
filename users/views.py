@@ -9,9 +9,13 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/users/login/')
 def profile(request):
+    """Django view profile page."""
+
     return render(request, 'users/profile.html')
 
 def create_account(request):
+    """Django view account creation."""
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -27,6 +31,8 @@ def create_account(request):
 
 @login_required(login_url='/users/login/')
 def favorites_user(request):
+    """Django view favorite page of users."""
+
     user = request.user
     product_favorite = Favorite.objects.filter(user=user)
     products = [ favorite.id_result for favorite in product_favorite ]

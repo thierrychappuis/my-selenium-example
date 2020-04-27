@@ -3,6 +3,8 @@ from products.models import Product, Favorite
 
 
 def result_search(request):
+    """Django view search result page."""
+
     result = None
     try:
         product_search = request.GET['q']
@@ -17,11 +19,15 @@ def result_search(request):
 
 
 def product_sheet(request, code):
+    """Django view product page."""
+
     product = get_object_or_404(Product, id=code)
     return render(request, 'products/product_sheet.html', {'product': product})
 
 
 def favorites(request):
+    """Django view favorite recording page."""
+
     if request.method == 'POST':
         user = request.user
         id_product = request.POST['id_product']
