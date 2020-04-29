@@ -6,6 +6,7 @@
     <title>Pur Beurre</title>
 </head>
 <body>
+    <a href="{% url 'home' %}"><button>Home</button></a>
     {% if user.is_authenticated %}
         <a href="{% url 'users:logout' %}"><button>Déconnexion</button></a>
         <a href="{% url 'users:profile' %}"><button>Mon compte</button></a>
