@@ -33,6 +33,7 @@ class Product(models.Model):
     url = models.CharField(max_length=500)
     store = models.ManyToManyField(Store)
     image_url = models.CharField(max_length=500)
+    image_nutrition_url = models.CharField(max_length=500)
 
     def __str__(self):
         return f"{self.product_name_fr} {self.nutrition_grade_fr.upper()}"

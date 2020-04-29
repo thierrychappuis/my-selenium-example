@@ -28,7 +28,8 @@ class DbAdd:
                     brands=product.brands,
                     id_category=current_category,
                     url=product.url,
-                    image_url=product.image_url
+                    image_url=product.image_url,
+                    image_nutrition_url=product.image_nutrition_url
                 )
                 current_product.save()
 

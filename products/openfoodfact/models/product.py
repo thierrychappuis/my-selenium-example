@@ -14,6 +14,7 @@ class Product:
         self.id_category = article.get('id_category')
         self.url = article.get('url')
         self.image_url = article.get('image_url')
+        self.image_nutrition_url = article.get('image_nutrition_url')
 
     @classmethod
     def is_valid(cls, article):

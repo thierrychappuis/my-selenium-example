@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <br>
 <br>
@@ -7,11 +7,13 @@
 
 <h1>Fiche Produit .</h1>
 <ul>
-        <li>{{product}}<ul>
-            <li>{{product.product_name_fr}}</li>
-            <li>Nutriscore : {{ product.nutrition_grade_fr.upper }}</li>
+
+        <li>{{product.product_name_fr}}</li>
             <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
-            <img src="{{ product.image_url }}" alt="Image du produit"> 
+            <img src="{% static 'img' %}/Scores{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore">
+            <img src="{{ product.image_url }}" alt="Image du produit">
+            <br>
+            <img src="{{ product.image_nutrition_url }}" alt="nutrition pour 100g"> 
         </ul></li>
 
 </ul>
