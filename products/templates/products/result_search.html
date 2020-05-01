@@ -1,14 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-
 <h1>Résultat de recherche:</h1>
-{% include "pur_beurre/search_box.html" %}
 <br>
 <ul>
-<li>{{ product.product_name_fr }}</li>
-<li>Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
-<img src="{{ product.image_url }}" alt="Image du produit">
+    <li>{{ product.product_name_fr }}</li>
+    <li>Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
+    <img src="{{ product.image_url }}" alt="Image du produit">
 </ul>
 <h2>Vous pouvez remplacer cet aliment par :</h2>
 <ul>
