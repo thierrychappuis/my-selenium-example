@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% include 'pur_beurre/header.html' %}
+<br>
+<h2 class="text-center mt-0">
+    Connexion utilisateur
+</h2>
+<hr class="divider my-4" />
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Envoyer</button>
 </form>
+
 {% endblock content %}

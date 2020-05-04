@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h2>Créer un compte ici.</h2>
+{% include 'pur_beurre/header.html' %}
+<br>
+<h2 class="text-center mt-0">
+    Création compte utilisateur
+</h2>
+<hr class="divider my-4" />
 <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Créer un compte</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Créer un compte</button>
 </form>
+
 {% endblock content %}
