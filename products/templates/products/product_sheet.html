@@ -2,16 +2,33 @@
 {% load static %}
 
 {% block content %}
-<h1>Fiche Produit .</h1>
-<ul>
+{% include 'pur_beurre/header.html' %}
 
-        <li>{{product.product_name_fr}}</li>
-            <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
-            <img src="{% static 'img' %}/Scores{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore">
-            <img src="{{ product.image_url }}" alt="Image du produit">
-            <br>
-            <img src="{{ product.image_nutrition_url }}" alt="nutrition pour 100g"> 
-        </ul></li>
-
-</ul>
+<section class="page-section" id="services">
+    <div class="container-fluid">
+        <h2 class="text-center mt-0">{{ product.product_name_fr }}</h2>
+        <hr class="divider my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-10 ">
+                <div class="mt-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 col-md-12">
+                                <ul>
+                                    <div class="img-container">
+                                        <img src="{{ product.image_url}}" alt="Image du produit">
+                                    </div>
+                                    <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
+                                    <img src="{{ product.image_nutrition_url }}" alt="nutrition pour 100g">
+                                    <img src="{% static 'img' %}/Scores{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
 {% endblock content %}

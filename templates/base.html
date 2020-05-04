@@ -19,6 +19,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'dist/css/styles.css' %}" rel="stylesheet" />
     </head>
+
     {% block navigation %}
     <body id="page-top">
         <!-- Navigation-->
@@ -45,7 +46,19 @@
         {% endblock content %}
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
+            <div class="container">
+                <div class="row small text-muted">
+                        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                            <a href="{% url 'legal_notice' %}">Mentions légales</a>
+                        </div>
+                        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                            Copyright © 2020 - Pur Beurre
+                        </div>
+                        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                            <a href="{% url 'home' %}#contact">Contact</a>
+                        </div>
+                </div>
+            </div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

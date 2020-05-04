@@ -1,14 +1,32 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-<br>
-<br>
-{% include "pur_beurre/search_box.html" %}
 
-<h1>Bienvenue sur la page mon compte</h1>
-<ul>
-    <li>{{ user.first_name }}</li>
-    <li>{{ user.email }}</li>
-</ul>
+{% include 'pur_beurre/header.html' %}
 
+<section class="page-section" id="services" style="padding-top: 0px">
+    <div class="container-fluid" style="
+        background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('/static/dist/assets/img/bg_profile.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 5rem;">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-0" style="padding-top: 1rem;">
+                    Bonjour {{ user.first_name }}
+                </h1>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="page-section" id="services">
+    <div class="container">
+        <h3 class="text-center mt-0">
+            {{ user.email }}
+        </h3>
+    </div>
+</section>
 {% endblock content %}

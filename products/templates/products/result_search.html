@@ -2,26 +2,41 @@
 {% load static %}
 
 {% block content %}
-<h1>Résultat de recherche:</h1>
-<br>
-<ul>
-    <li>{{ product.product_name_fr }}</li>
-    <li>Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
-    <img src="{{ product.image_url }}" alt="Image du produit">
-</ul>
-<h2>Vous pouvez remplacer cet aliment par :</h2>
-<ul>
-    {% for product in substituts %}
-        <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li> <li>Nutriscore: {{ product.nutrition_grade_fr.upper }}</li>
-        <img src="{{ product.image_url }}" alt="Image du produit">
-        {% if user.is_authenticated %}
-        <form action="{% url 'products:favorites' %}" method="POST">{% csrf_token %}<button type="submit">Sauvegarder</button>
-            <br>
-            <br>
-        <input type="hidden" id="id_product" name="id_product" value="{{ product.id }}">
-        </form>
-        {% else %}
-    {% endif %}
-    {% endfor %}
-</ul>
+{% include 'pur_beurre/header.html' %}
+
+<section class="page-section" id="services">
+    <div class="container">
+        <h2 class="text-center mt-0">
+            Vous pouvez remplacer {{ product.product_name_fr }} par :
+        </h2>
+        <hr class="divider my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-10 ">
+                <div class="mt-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            {% for product in substituts %}
+                                <div class="col-lg-4 col-md-12">
+                                    <ul>
+                                        <div class="img-container">
+                                            <img src="{{ product.image_url }}" alt="Image du produit" height="200" width="200">
+                                        </div>
+                                            <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li>
+                                            {% if user.is_authenticated %}
+                                                <form action="{% url 'products:favorites' %}" method="POST">{% csrf_token %}<button type="submit"><i class="far fa-save"></i></button>&nbsp Sauvegarder
+                                                <input type="hidden" id="id_product" name="id_product" value="{{ product.id }}">
+                                                </form>
+                                                <br>
+                                                {% else %}
+                                                {% endif %}
+                                </div>
+                                                {% endfor %}
+                                    </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
 {% endblock content %}
