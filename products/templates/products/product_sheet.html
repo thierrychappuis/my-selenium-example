@@ -4,25 +4,30 @@
 {% block content %}
 {% include 'pur_beurre/header.html' %}
 
-<section class="page-section" id="services">
+<div class="img-f">
+    <img src="{{ product.image_url}}" alt="Image du produit" width="20%">
+</div>
+<section class="page-product" id="services">
     <div class="container-fluid">
-        <h2 class="text-center mt-0">{{ product.product_name_fr }}</h2>
-        <hr class="divider my-4">
+        <h2 class="text-center mt-0 fony-custom-title">{{ product.product_name_fr }}</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+            <img src="{% static 'img' %}/Scores{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore">
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+            <img src="{{ product.image_nutrition_url }}" alt="nutrition pour 100g">
+        </div>
+    </div>
+    <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-10 ">
+            <div class="col-lg-6 col-md-10">
                 <div class="mt-5">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-12">
-                                <ul>
-                                    <div class="img-container">
-                                        <img src="{{ product.image_url}}" alt="Image du produit">
-                                    </div>
-                                    <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
-                                    <img src="{{ product.image_nutrition_url }}" alt="nutrition pour 100g">
-                                    <img src="{% static 'img' %}/Scores{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore">
-                                </ul>
-                            </div>
+                            <ul>
+                                <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

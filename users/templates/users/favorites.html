@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 {% include 'pur_beurre/header.html' %}
 
 <section class="page-section" id="services">
     <div class="container">
-        <h2 class="text-center mt-0">
+        <h2 class="text-center mt-0 font-custom-title">
             Liste des favoris
         </h2>
         <hr class="divider my-4">
@@ -17,12 +18,18 @@
                             {% for product in products %}
                                 <div class="col-lg-4 col-md-12">
                                     <ul>
-                                        <div class="img-container">
-                                            <img src="{{ product.image_url }}" alt="Image du produit" height="200" width="200">
-                                        </div>
+                                        <div class="product">
+                                            <img src="{{ product.image_url }}" alt="Image du produit" class="img-p">
+                                            <img src="{% static 'img' %}/{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore" class="score-logo">
+                                            <br>
                                             <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li>
                                             <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
+                                        </div>
+                                        <br>
+                                        
                                     </ul>
+                                    <br>
+                                    <br>
                                 </div>
                                 {% endfor %}
                             </div>

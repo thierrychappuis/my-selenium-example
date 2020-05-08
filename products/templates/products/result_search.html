@@ -4,11 +4,21 @@
 {% block content %}
 {% include 'pur_beurre/header.html' %}
 
-<section class="page-section" id="services">
+<div class="container-fluid img-f">
+    <img src="{{ product.image_url }}" alt="Image du produit">
+</div>
+<br>
+<section class="page-result" id="services">
     <div class="container">
-        <h2 class="text-center mt-0">
+        {% if substituts %}
+        <h2 class="text-center mt-0 font-custom-title">
             Vous pouvez remplacer {{ product.product_name_fr }} par :
         </h2>
+        {% else %}
+        <h2 class="text-center mt-0 font-custom-title">
+            Pas de résultat pour {{ product.product_name_fr }}.
+        </h2>
+        {% endif %}
         <hr class="divider my-4">
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-10 ">
@@ -18,8 +28,9 @@
                             {% for product in substituts %}
                                 <div class="col-lg-4 col-md-12">
                                     <ul>
-                                        <div class="img-container">
-                                            <img src="{{ product.image_url }}" alt="Image du produit" height="200" width="200">
+                                        <div class="product">
+                                            <img src="{{ product.image_url }}" alt="Image du produit" class="img-p">
+                                            <img src="{% static 'img' %}/{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore" class="score-logo">
                                         </div>
                                             <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li>
                                             {% if user.is_authenticated %}
