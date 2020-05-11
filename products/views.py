@@ -10,7 +10,11 @@ def result_search(request):
         product_search = request.GET['q']
         product = Product.objects.filter(
             product_name_fr__icontains=product_search).first()
-        substituts = product.better_products()
+        if product:
+            substituts = product.better_products()
+        else:
+            product = None
+            substituts = None
 
     except KeyError:
         print('Pas de requête')

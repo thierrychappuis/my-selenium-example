@@ -46,7 +46,13 @@
 }
 
 .page-result {
-    padding: 0rem;
+    padding: 2rem;
+    min-height: 75%;
+}
+
+.page-center {
+    padding: 4rem;
+    min-height: 60%;
 }
 
 .font-custom-title {
@@ -57,8 +63,10 @@
     font-family: "Scope One", sans-serif;
 }
 
-.div-footer {
-    margin-bottom: 60px;
-    font-size: 24px;
-    text-align: center;
+.custom-forms {
+    border: 1px dashed #345A61;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px;
+    background-color: #E8A75D;
 }

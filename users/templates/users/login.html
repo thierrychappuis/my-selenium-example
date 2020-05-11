@@ -7,10 +7,13 @@
     Connexion utilisateur
 </h2>
 <hr class="divider my-4" />
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Envoyer</button>
-</form>
+<section class="page-center">
+    <form action="" method="post" class="custom-forms">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
 
 {% endblock content %}

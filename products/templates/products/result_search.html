@@ -4,6 +4,7 @@
 {% block content %}
 {% include 'pur_beurre/header.html' %}
 
+{% if product %}
 <div class="container-fluid img-f">
     <img src="{{ product.image_url }}" alt="Image du produit">
 </div>
@@ -26,28 +27,42 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             {% for product in substituts %}
-                                <div class="col-lg-4 col-md-12">
-                                    <ul>
-                                        <div class="product">
-                                            <img src="{{ product.image_url }}" alt="Image du produit" class="img-p">
-                                            <img src="{% static 'img' %}/{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore" class="score-logo">
-                                        </div>
-                                            <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li>
-                                            {% if user.is_authenticated %}
-                                                <form action="{% url 'products:favorites' %}" method="POST">{% csrf_token %}<button type="submit"><i class="far fa-save"></i></button>&nbsp Sauvegarder
-                                                <input type="hidden" id="id_product" name="id_product" value="{{ product.id }}">
-                                                </form>
-                                                <br>
-                                                {% else %}
-                                                {% endif %}
-                                </div>
-                                                {% endfor %}
-                                    </ul>
+                            <div class="col-lg-4 col-md-12">
+                                <ul>
+                                    <div class="product">
+                                        <img src="{{ product.image_url }}" alt="Image du produit" class="img-p">
+                                        <img src="{% static 'img' %}/{{ product.nutrition_grade_fr|upper }}.png"
+                                            alt="nutriscrore" class="score-logo">
+                                    </div>
+                                    <li><a
+                                            href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a>
+                                    </li>
+                                    {% if user.is_authenticated %}
+                                    <form action="{% url 'products:favorites' %}" method="POST">{% csrf_token %}<button
+                                            type="submit"><i class="far fa-save"></i></button>&nbsp Sauvegarder
+                                        <input type="hidden" id="id_product" name="id_product" value="{{ product.id }}">
+                                    </form>
+                                    <br>
+                                    {% else %}
+                                    {% endif %}
+                            </div>
+                            {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
+        {% else %}
+        <section class="page-result" id="services">
+            <div class="container text-center mt-0 font-custom-title">
+                <h3>
+                    Aucun produit trouvé.
+                </h3>
+            </div>
+        </section>
+        {% endif %}
+
     </div>
 </section>
 {% endblock content %}
