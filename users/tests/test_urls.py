@@ -9,17 +9,17 @@ from users.views import profile, create_account, favorites_user
 class UrlTestCase(TestCase):
 
     def test_user_url_login(self):
-        found = resolve(reverse("login"))
-        self.assertEqual(found.func.views_class, LoginView)
+        found = resolve(reverse("users:login"))
+        self.assertEqual(found.func.view_class, LoginView)
     
     def test_user_url_profile_view(self):
-        found = resolve(reverse("user:profile"))
+        found = resolve(reverse("users:profile"))
         self.assertEqual(found.func, profile)
 
     def test_user_url_create_account_view(self):
-        found = resolve(reverse("user:create_account"))
+        found = resolve(reverse("users:create_account"))
         self.assertEqual(found.func, create_account)
 
     def test_user_url_fovorites_user_view(self):
-        found = resolve(reverse("user:fovorites"))
+        found = resolve(reverse("users:favorites"))
         self.assertEqual(found.func, favorites_user)

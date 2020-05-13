@@ -11,7 +11,7 @@ class UrlTestCase(TestCase):
         self.assertEqual(found.func, result_search)
     
     def test_product_sheet_url_view(self):
-        found = resolve(reverse("products:product_sheet"))
+        found = resolve(reverse("products:product_sheet", kwargs={"code":1}))
         self.assertEqual(found.func, product_sheet)
 
     def test_favorites_url_view(self):
