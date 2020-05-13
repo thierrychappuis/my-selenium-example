@@ -55,12 +55,18 @@ class Favorite(models.Model):
         on_delete=models.CASCADE,
         related_name="favorites",
     )
-    id_result = models.ForeignKey(
+    substitute = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
-        verbose_name="Produit proposé",
-        related_name="result"
+        verbose_name="Substitut proposé",
+        related_name="favorites_as_substitute"
+    ),
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name="Produit substitué",
+        related_name="favorites_as_product"
     )
 
     def __str__(self):
-        return f"{self.id_result}"
+        return f"{self.product}, {self.substitute}"

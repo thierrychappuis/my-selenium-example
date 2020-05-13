@@ -9,7 +9,9 @@
 </div>
 <section class="page-product" id="services">
     <div class="container-fluid">
+        <hr class="divider my-4">
         <h2 class="text-center mt-0 font-title">{{ product.product_name_fr }}</h2>
+        <hr class="divider my-4">
     </div>
     <div class="row">
         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
@@ -25,9 +27,7 @@
                 <div class="mt-5">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <ul>
-                                <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
-                            </ul>
+                            <a href="{{ product.url }}"><button>Voir la fiche d'Open Food Fact</button></a>
                         </div>
                     </div>
                 </div>

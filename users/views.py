@@ -35,6 +35,6 @@ def favorites_user(request):
 
     user = request.user
     product_favorite = Favorite.objects.filter(user=user)
-    products = [ favorite.id_result for favorite in product_favorite ]
+    products = [ favorite.product for favorite in product_favorite ]
 
     return render(request, 'users/favorites.html', {'products': products})

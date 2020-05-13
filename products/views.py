@@ -38,7 +38,7 @@ def favorites(request):
         product = Product.objects.get(id=id_product)
         product_save = Favorite.objects.get_or_create(
             user=user,
-            id_result=product
+            product=product
             )
         return render(request, 'products/product_sheet.html', {'product': product})
 
