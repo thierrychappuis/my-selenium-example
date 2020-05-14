@@ -13,6 +13,7 @@ def profile(request):
 
     return render(request, 'users/profile.html')
 
+
 def create_account(request):
     """Django view account creation."""
 
@@ -29,12 +30,13 @@ def create_account(request):
         form = CustomUserCreationForm()
     return render(request, 'users/create_account.html', {'form': form})
 
+
 @login_required(login_url='/users/login/')
 def favorites_user(request):
     """Django view favorite page of users."""
 
     user = request.user
     product_favorite = Favorite.objects.filter(user=user)
-    products = [ favorite.product for favorite in product_favorite ]
+    substitutes = [favorite.substitute for favorite in product_favorite]
 
-    return render(request, 'users/favorites.html', {'products': products})
+    return render(request, 'users/favorites.html', {'substitutes': substitutes})

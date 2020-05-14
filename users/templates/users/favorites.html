@@ -15,15 +15,15 @@
                 <div class="mt-5">
                     <div class="container">
                         <div class="row justify-content-center">
-                            {% for product in products %}
+                            {% for substitute in substitutes %}
                                 <div class="col-lg-4 col-md-12">
                                     <ul>
                                         <div class="product">
-                                            <img src="{{ product.image_url }}" alt="Image du produit" class="img-p">
-                                            <img src="{% static 'img' %}/{{ product.nutrition_grade_fr|upper }}.png" alt="nutriscrore" class="score-logo">
+                                            <img src="{{ substitute.image_url }}" alt="Image du produit" class="img-p">
+                                            <img src="{% static 'img' %}/{{ substitute.nutrition_grade_fr|upper }}.png" alt="nutriscrore" class="score-logo">
                                             <br>
-                                            <li><a href="{% url 'products:product_sheet' product.id %}">{{ product.product_name_fr }}</a></li>
-                                            <li><a href="{{ product.url }}">Voir la fiche d'Open Food Fact</a></li>
+                                            <li><a href="{% url 'products:product_sheet' substitute.id %}">{{ substitute.product_name_fr }}</a></li>
+                                            <li><a href="{{ substitute.url }}">Voir la fiche d'Open Food Fact</a></li>
                                         </div>
                                         <br>
                                         

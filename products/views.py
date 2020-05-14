@@ -34,12 +34,16 @@ def favorites(request):
 
     if request.method == 'POST':
         user = request.user
+        id_substitut = request.POST['id_substitut']
         id_product = request.POST['id_product']
+
+        substitut = Product.objects.get(id=id_substitut)
         product = Product.objects.get(id=id_product)
         product_save = Favorite.objects.get_or_create(
             user=user,
-            product=product
+            product=product,
+            substitute=substitut
             )
-        return render(request, 'products/product_sheet.html', {'product': product})
+        return redirect('products:product_sheet', code=id_substitut)
 
     return redirect('home')

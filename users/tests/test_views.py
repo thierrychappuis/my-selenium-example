@@ -1,0 +1,1 @@
+# self.assertTemplateUsed('users/profile.html')
