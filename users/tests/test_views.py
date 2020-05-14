@@ -18,8 +18,8 @@ class UsersTestViews(TestCase):
         response = self.client.post("/users/create_account/",
         {
             "username":"TestUser",
-            "pasword1":"PaswordTest&120",
-            "pasword2":"PaswordTest&120"
+            "password1":"PasswordTest&120",
+            "password2":"PasswordTest&120"
         })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertTemplateUsed('users/profile.html')
