@@ -14,7 +14,7 @@ class UsersTestViews(TestCase):
        self.assertEqual(response.status_code, 200)
        self.assertTemplateUsed("users/profile.html")
 
-    def test_user_create_account(self):
+    def test_user_create_account_successfully(self):
         response = self.client.post("/users/create_account/",
         {
             "username":"TestUser",
