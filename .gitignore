@@ -3,3 +3,4 @@ __pycache__
 .vscode
 *.log
 node_modules/
+chromedriver.exe
