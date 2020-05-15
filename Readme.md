@@ -4,7 +4,7 @@
 - Creation of an application to find a substitute for consumer products.
 
 # - 1: Project online:
-- Go to the following address:
+- Go to the following address: https://indiana-p8-pur-beurre.herokuapp.com/
 
 # - 2: Initialization of the project locally:
 - 1: To initialize the virtual environment: `pipenv install`.
