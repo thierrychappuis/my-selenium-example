@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from selenium import webdriver
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.headless = True
+chrome_options.headless = False
 
 
 class ChromeFunctionalTestCases(StaticLiveServerTestCase):
@@ -26,5 +26,5 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
                 self.driver.find_element_by_css_selector('#id_username').send_keys("UserTest")
                 self.driver.find_element_by_css_selector('#id_password').send_keys("PasswordTest&2003")
                 self.driver.find_element_by_css_selector('#button-submit').click()
-                logout = self.driver.find_element_by_css_selector('#button-logout')
-                self.assertEqual(logout.text, "Déconnexion", "Disconnect button should be available.")
+                logout = self.driver.find_element_by_css_selector('#icon-logout')
+                self.assertEqual(logout.icon, "Disconnect button should be available.")
