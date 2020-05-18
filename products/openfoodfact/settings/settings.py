@@ -7,4 +7,4 @@ keywords = ["product_name_fr", "nutrition_grade_fr",
 category_list = ['pizzas', 'fromages',
                 'biscuits', 'gâteaux',
                 'yaourts', 'jus de fruits', 'boissons',
-                'petit-déjeuners', 'plats préparés surgelés']
+                'petit-déjeuners']
