@@ -133,4 +133,5 @@ AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "users:profile"
 LOGOUT_REDIRECT_URL = "home"
 
-django_heroku.settings(locals())
+if os.environ.get("ENV") == "production":
+    django_heroku.settings(locals())
