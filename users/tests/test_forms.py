@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from users.forms import CustomUserCreationForm
 
+
 class UsersFormTestCase(TestCase):
 
     def test_user_creation_forms_is_valid(self):
@@ -25,7 +26,7 @@ class UsersFormTestCase(TestCase):
             "password2": "Azerty"
         })
         self.assertFalse(form.is_valid())
-    
+
     def test_user_creation_forms_email_is_not_valid(self):
         form = CustomUserCreationForm(data={
             "username": "benjamin",

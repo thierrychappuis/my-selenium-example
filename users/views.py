@@ -1,10 +1,10 @@
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserCreationForm
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
-from products.models import Favorite
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+
+from products.models import Favorite
+
+from .forms import CustomUserCreationForm
 
 
 @login_required(login_url='/users/login/')

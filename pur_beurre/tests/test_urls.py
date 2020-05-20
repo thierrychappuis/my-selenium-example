@@ -2,7 +2,8 @@ from django.test import TestCase
 from django.urls import resolve
 from django.shortcuts import reverse
 
-from pur_beurre.views import home,legal_notice
+from pur_beurre.views import home, legal_notice
+
 
 class UrlTestCase(TestCase):
 

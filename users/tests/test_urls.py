@@ -11,7 +11,7 @@ class UrlTestCase(TestCase):
     def test_user_url_login(self):
         found = resolve(reverse("users:login"))
         self.assertEqual(found.func.view_class, LoginView)
-    
+
     def test_user_url_profile_view(self):
         found = resolve(reverse("users:profile"))
         self.assertEqual(found.func, profile)
