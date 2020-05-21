@@ -6,7 +6,7 @@ from users.models import User
 class UsersTestViews(TestCase):
 
     def setUp(self):
-        user = User.objects.create_user(
+        User.objects.create_user(
             username="UserTest", password="PaswordTest&120")
 
     def test_user_profile(self):

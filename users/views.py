@@ -39,4 +39,5 @@ def favorites_user(request):
     product_favorite = Favorite.objects.filter(user=user)
     substitutes = [favorite.substitute for favorite in product_favorite]
 
-    return render(request, 'users/favorites.html', {'substitutes': substitutes})
+    return render(request, 'users/favorites.html',
+                  {'substitutes': substitutes})

@@ -19,7 +19,11 @@ def result_search(request):
     except KeyError:
         print('Pas de requête')
 
-    return render(request, 'products/result_search.html', {'substituts': substituts, 'product': product})
+    return render(
+        request,
+        'products/result_search.html',
+        {'substituts': substituts, 'product': product}
+    )
 
 
 def product_sheet(request, code):
@@ -43,7 +47,7 @@ def favorites(request):
             user=user,
             product=product,
             substitute=substitut
-            )
+        )
         return redirect('products:product_sheet', code=id_substitut)
 
     return redirect('home')

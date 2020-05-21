@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.urls import reverse
+
 from products.models import Category, Favorite, Product
 from users.models import User
 
@@ -8,19 +8,19 @@ class ProductTestViews(TestCase):
 
     def setUp(self):
         category = Category.objects.create(name="pizza")
-        product = Product.objects.create(
+        Product.objects.create(
             id=1854796,
             id_category=category,
             product_name_fr="pizza jambon",
             nutrition_grade_fr="b"
         )
-        substitut = Product.objects.create(
+        Product.objects.create(
             id=1254547,
             id_category=category,
             product_name_fr="pizza fromage",
             nutrition_grade_fr="a"
         )
-        user = User.objects.create_user(
+        User.objects.create_user(
             username="UserTest", password="PaswordTest&120")
 
     def test_views_result_search(self):
@@ -45,7 +45,11 @@ class ProductTestViews(TestCase):
         id_substitut = Product.objects.get(id=1254547).id
         id_product = Product.objects.get(id=1854796).id
         response = self.client.post(
-            '/products/favorites', {"id_substitut": id_substitut, "id_product": id_product})
+            '/products/favorites',
+            {
+                "id_substitut": id_substitut,
+                "id_product": id_product
+            })
         favorite = Favorite.objects.get(
             product__id=1854796, substitute__id=1254547)
 

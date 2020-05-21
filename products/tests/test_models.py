@@ -44,13 +44,17 @@ class ProductTestsModels(TestCase):
         )
 
         user = User.objects.create_user(
-            username="UtilisateurTest", 
-            first_name="utilisateur", 
-            last_name="Test", 
+            username="UtilisateurTest",
+            first_name="utilisateur",
+            last_name="Test",
             password="Azertyu&4552"
         )
 
-        Favorite.objects.create(user=user, substitute=substitute, product=product)
+        Favorite.objects.create(
+            user=user,
+            substitute=substitute,
+            product=product
+        )
         favorite = Favorite.objects.all().first()
         self.assertEqual(favorite.user, user)
         self.assertEqual(favorite.substitute, substitute)
