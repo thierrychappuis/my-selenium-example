@@ -14,8 +14,7 @@ django-extensions = "*"
 flake8 = "*"
 coverage = "*"
 selenium = "*"
-django-heroku = "*"
 gunicorn = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
