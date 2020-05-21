@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -132,6 +132,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "users:profile"
 LOGOUT_REDIRECT_URL = "home"
-
-if os.environ.get("ENV") == "production":
-    django_heroku.settings(locals())
