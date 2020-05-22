@@ -22,7 +22,7 @@ before_script:
 
 env:
   global:
-    - DJANGO_SETTINGS_MODULE="config.settings.travis"
+    - DJANGO_SETTINGS_MODULE="pur_beurre.settings.travis"
 
 services:
   - postgresql
