@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-
+from django.core.exceptions import ObjectDoesNotExist
 from products.openfoodfact.models.categorydownloader import CategoryDownloader
 from products.models import Product
 from sentry_sdk import capture_message
@@ -15,9 +15,10 @@ class Command(BaseCommand):
         all_categories = category.get_category()
         for category in all_categories:
             for product in category.products:
-                
-                db_product = Product.objects.get(id=product.id)
-                
+                try:
+                    db_product = Product.objects.get(id=product.id)
+                except Product.DoesNotExist:
+                    continue
 
                 db_product.product_name_fr = product.product_name_fr
                 db_product.stores = product.stores
