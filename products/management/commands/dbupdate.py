@@ -13,7 +13,7 @@ class Command(BaseCommand):
         category = CategoryDownloader()
         self.stdout.write('On télécharge les catégories et les produits !')
         all_categories = category.get_category()
-        for category in category:
+        for category in category['category']:
             for product in category.products:
                 try:
                     db_product = Product.objects.get(id=product['code'])
