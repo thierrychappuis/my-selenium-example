@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
 from products.openfoodfact.models.categorydownloader import CategoryDownloader
-from products.openfoodfact.models.product import Product
+from products.models import Product
 from sentry_sdk import capture_message
 
 
