@@ -16,7 +16,7 @@ class Command(BaseCommand):
         for category in all_categories:
             for product in category.products:
                 try:
-                    db_product = Product.objects.get(id=product['code'])
+                    db_product = Product.objects.get(id=product.id)
                 except Product.DoesNotExists:
                     continue
 
