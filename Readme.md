@@ -1,4 +1,4 @@
-# - Projet 8 (Pur Beurre) OC.
+# Projet 8 (Pur Beurre) OC.
 
 # - Description:
 - Creation of an application to find a substitute for consumer products.
