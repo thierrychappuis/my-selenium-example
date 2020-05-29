@@ -6,3 +6,4 @@ node_modules/
 chromedriver.exe
 staticfiles
 .flake8
+db.sqlite3
